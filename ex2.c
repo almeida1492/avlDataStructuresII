@@ -3,8 +3,15 @@
 #include <stdbool.h>
 #include "P8AVLADT.h"
 
-void print_avl_tree(void *dataPtr){
-	/*printf("(%i) %i \n", );*/
+void print(AVL_NODE *root){
+	
+	if(root->right){
+		print(root->right);
+	}
+	printf("(%i) %i %i\n", root->level, *(int*)root->dataPtr, root->bal);
+	if(root->left){
+		print(root->left);
+	}
 }
 
 int compareInt (void* num1, void* num2){
@@ -25,7 +32,7 @@ int compareInt (void* num1, void* num2){
 int main(){
 //	Declarations
 	AVL_TREE *tree;
-	int array[] = {80, 70, 60, 45, 50, 65, 75};
+	int array[] = {70, 60, 80, 50, 75, 65, 45};
 	int *container;
 
 //	Statements
@@ -36,5 +43,7 @@ int main(){
 
 		AVL_Insert(tree, container);
 	}
-	level_update(tree->root, -1);
+	level_update(tree->root, 0);
+
+	print(tree->root);
 }

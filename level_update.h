@@ -12,5 +12,4 @@ void level_update(AVL_NODE *root, int counter){
 	if(root->right){
 		level_update(root->right, counter);
 	}
-	printf("%i\n", counter);
 }
