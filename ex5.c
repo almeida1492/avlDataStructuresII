@@ -7,8 +7,8 @@ int avl_height(AVL_TREE *tree, AVL_NODE *root){
 	int leftHight, rightHight;
 
 	if(root){
-		leftHight = avl_hight(tree, root->left);
-		rightHight = avl_hight(tree, root->right);
+		leftHight = avl_height(tree, root->left);
+		rightHight = avl_height(tree, root->right);
 	
 			if(leftHight < rightHight){
 				return rightHight + 1;
@@ -70,7 +70,7 @@ int main(){
 //	Local Definitions
 	AVL_TREE *tree;
 	int array[] = {70, 60, 80, 50, 75, 65, 45};
-	int *container;
+	int *container, *data;
 
 //	Statements
 	tree = AVL_Create(compareInt);
@@ -82,7 +82,11 @@ int main(){
 	}
 	level_update(tree->root, 0);
 
+	data = (int*) malloc(sizeof(int));
+	printf("Input data: ");
+	scanf("%i", data);
 
+	iterative_insertion(tree, data);
 
 
 
