@@ -12,10 +12,10 @@ int bst_height(BST_TREE *tree, NODE *root){
 		rightHeight = bst_height(tree, root->right);
 	
 			if(leftHeight < rightHeight){
-				return rightHight + 1;
+				return rightHeight + 1;
 			}
 			else{
-				return leftHight + 1;
+				return leftHeight + 1;
 		}
 	}
 	else{
@@ -27,14 +27,14 @@ int avl_height(AVL_TREE *tree, AVL_NODE *root){
 	int leftHeight, rightHeight;
 
 	if(root){
-		leftHight = avl_height(tree, root->left);
-		rightHight = avl_height(tree, root->right);
+		leftHeight = avl_height(tree, root->left);
+		rightHeight = avl_height(tree, root->right);
 	
-			if(leftHight < rightHight){
-				return rightHight + 1;
+			if(leftHeight < rightHeight){
+				return rightHeight + 1;
 			}
 			else{
-				return leftHight + 1;
+				return leftHeight + 1;
 		}
 	}
 	else{
@@ -80,11 +80,11 @@ int main(){
 			if (i == 100){
 				printf("\n------------------------------------");
 				printf("\n size 	= [%i]", i);
-				printf("\n random case BST hight 	= %i", bst_hight(bst_tree_rand, bst_tree_rand->root));
-				printf("\n random case AVL hight 	= %i\n", avl_hight(avl_tree_rand, avl_tree_rand->root));
+				printf("\n random case BST hight 	= %i", bst_height(bst_tree_rand, bst_tree_rand->root));
+				printf("\n random case AVL hight 	= %i\n", avl_height(avl_tree_rand, avl_tree_rand->root));
 
-				printf("\n worst case BST hight 	= %i", bst_hight(bst_tree_worst, bst_tree_worst->root));
-				printf("\n worst case AVL hight 	= %i\n", avl_hight(avl_tree_worst, avl_tree_worst->root));
+				printf("\n worst case BST hight 	= %i", bst_height(bst_tree_worst, bst_tree_worst->root));
+				printf("\n worst case AVL hight 	= %i\n", avl_height(avl_tree_worst, avl_tree_worst->root));
 			}
 		}
 
@@ -111,11 +111,11 @@ int main(){
 			if (i == 500){
 				printf("\n------------------------------------");
 				printf("\n size 	= [%i]", i);
-				printf("\n random case BST hight 	= %i", bst_hight(bst_tree_rand, bst_tree_rand->root));
-				printf("\n random case AVL hight 	= %i\n", avl_hight(avl_tree_rand, avl_tree_rand->root));
+				printf("\n random case BST hight 	= %i", bst_height(bst_tree_rand, bst_tree_rand->root));
+				printf("\n random case AVL hight 	= %i\n", avl_height(avl_tree_rand, avl_tree_rand->root));
 
-				printf("\n worst case BST hight 	= %i", bst_hight(bst_tree_worst, bst_tree_worst->root));
-				printf("\n worst case AVL hight 	= %i\n", avl_hight(avl_tree_worst, avl_tree_worst->root));
+				printf("\n worst case BST hight 	= %i", bst_height(bst_tree_worst, bst_tree_worst->root));
+				printf("\n worst case AVL hight 	= %i\n", avl_height(avl_tree_worst, avl_tree_worst->root));
 			}
 		}
 
@@ -142,11 +142,11 @@ int main(){
 			if (i == 1000){
 				printf("\n------------------------------------");
 				printf("\n size 	= [%i]", i);
-				printf("\n random case BST hight 	= %i", bst_hight(bst_tree_rand, bst_tree_rand->root));
-				printf("\n random case AVL hight 	= %i\n", avl_hight(avl_tree_rand, avl_tree_rand->root));
+				printf("\n random case BST hight 	= %i", bst_height(bst_tree_rand, bst_tree_rand->root));
+				printf("\n random case AVL hight 	= %i\n", avl_height(avl_tree_rand, avl_tree_rand->root));
 
-				printf("\n worst case BST hight 	= %i", bst_hight(bst_tree_worst, bst_tree_worst->root));
-				printf("\n worst case AVL hight 	= %i\n", avl_hight(avl_tree_worst, avl_tree_worst->root));
+				printf("\n worst case BST hight 	= %i", bst_height(bst_tree_worst, bst_tree_worst->root));
+				printf("\n worst case AVL hight 	= %i\n", avl_height(avl_tree_worst, avl_tree_worst->root));
 			}
 		}
 
@@ -171,11 +171,11 @@ int main(){
 			if (i == 5000){
 				printf("\n------------------------------------");
 				printf("\n size 	= [%i]", i);
-				printf("\n random case BST hight 	= %i", bst_hight(bst_tree_rand, bst_tree_rand->root));
-				printf("\n random case AVL hight 	= %i\n", avl_hight(avl_tree_rand, avl_tree_rand->root));
+				printf("\n random case BST hight 	= %i", bst_height(bst_tree_rand, bst_tree_rand->root));
+				printf("\n random case AVL hight 	= %i\n", avl_height(avl_tree_rand, avl_tree_rand->root));
 
-				printf("\n worst case BST hight 	= %i", bst_hight(bst_tree_worst, bst_tree_worst->root));
-				printf("\n worst case AVL hight 	= %i\n", avl_hight(avl_tree_worst, avl_tree_worst->root));
+				printf("\n worst case BST hight 	= %i", bst_height(bst_tree_worst, bst_tree_worst->root));
+				printf("\n worst case AVL hight 	= %i\n", avl_height(avl_tree_worst, avl_tree_worst->root));
 			}
 		}
 
@@ -201,11 +201,11 @@ int main(){
 			if (i == 10000){
 				printf("\n------------------------------------");
 				printf("\n size 	= [%i]", i);
-				printf("\n random case BST hight 	= %i", bst_hight(bst_tree_rand, bst_tree_rand->root));
-				printf("\n random case AVL hight 	= %i\n", avl_hight(avl_tree_rand, avl_tree_rand->root));
+				printf("\n random case BST hight 	= %i", bst_height(bst_tree_rand, bst_tree_rand->root));
+				printf("\n random case AVL hight 	= %i\n", avl_height(avl_tree_rand, avl_tree_rand->root));
 
-				printf("\n worst case BST hight 	= %i", bst_hight(bst_tree_worst, bst_tree_worst->root));
-				printf("\n worst case AVL hight 	= %i\n", avl_hight(avl_tree_worst, avl_tree_worst->root));
+				printf("\n worst case BST hight 	= %i", bst_height(bst_tree_worst, bst_tree_worst->root));
+				printf("\n worst case AVL hight 	= %i\n", avl_height(avl_tree_worst, avl_tree_worst->root));
 			}
 		}
 	}
