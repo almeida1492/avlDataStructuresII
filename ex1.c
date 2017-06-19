@@ -4,14 +4,14 @@
 #include "P8AVLADT.h"
 #include "../tree/P7-BST-ADT.h"
 
-int bst_hight(BST_TREE *tree, NODE *root){
-	int leftHight, rightHight;
+int bst_height(BST_TREE *tree, NODE *root){
+	int leftHeight, rightHeight;
 
 	if(root){
-		leftHight = bst_hight(tree, root->left);
-		rightHight = bst_hight(tree, root->right);
+		leftHeight = bst_height(tree, root->left);
+		rightHeight = bst_height(tree, root->right);
 	
-			if(leftHight < rightHight){
+			if(leftHeight < rightHeight){
 				return rightHight + 1;
 			}
 			else{
@@ -23,12 +23,12 @@ int bst_hight(BST_TREE *tree, NODE *root){
 	}
 }
 
-int avl_hight(AVL_TREE *tree, AVL_NODE *root){
-	int leftHight, rightHight;
+int avl_height(AVL_TREE *tree, AVL_NODE *root){
+	int leftHeight, rightHeight;
 
 	if(root){
-		leftHight = avl_hight(tree, root->left);
-		rightHight = avl_hight(tree, root->right);
+		leftHight = avl_height(tree, root->left);
+		rightHight = avl_height(tree, root->right);
 	
 			if(leftHight < rightHight){
 				return rightHight + 1;
