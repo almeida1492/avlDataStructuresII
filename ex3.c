@@ -20,7 +20,7 @@ int compareInt (void* num1, void* num2){
 
 void* node_search(AVL_TREE* tree, void* keyPtr, AVL_NODE* root){
 //	Statements 
-	if (root){
+	if(root){
 
 		if(root->level == 1 && *(int*)root->dataPtr == *(int*)keyPtr){
 			printf("\nNode is root, thus it has no parent\n");
@@ -33,15 +33,25 @@ void* node_search(AVL_TREE* tree, void* keyPtr, AVL_NODE* root){
 			printf("\nNode found at level %i carrying value [%i]\n", root->level, *(int*)root->dataPtr);
 			return root->dataPtr;
 		}
-		else{
-			if (tree->compare(keyPtr, root->dataPtr) < 0){
-	        	return node_search(tree, keyPtr, root->left);
+		
+		if (tree->compare(keyPtr, root->dataPtr) < 0){
+			if(root->left){
+				return node_search(tree, keyPtr, root->left);
+			}
+	    	else{
+	    		return NULL;
 	    	}
+	    }
 
-	    	else if (tree->compare(keyPtr, root->dataPtr) > 0){
-	        	return node_search(tree, keyPtr, root->right);
+	    else if (tree->compare(keyPtr, root->dataPtr) > 0){
+	    	if(root->right){
+	    		return node_search(tree, keyPtr, root->right);
 	    	}
-		}
+	        else{
+	        	return NULL;
+	        }
+	    }
+
 		return NULL;
 	}  // if root 
 	
@@ -73,8 +83,8 @@ int main(){
 	scanf("%i", val);
 
 	receiver = (int*) node_search(tree, val, tree->root);
-	/*if(receiver == NULL){
+	if(receiver == NULL){
 		printf("\nNot found\n");
-	}*/
+	}
 	return 0;
 }
