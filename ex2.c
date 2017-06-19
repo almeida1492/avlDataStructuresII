@@ -4,7 +4,7 @@
 #include "P8AVLADT.h"
 
 void print(AVL_NODE *root){
-	
+
 	if(root->right){
 		print(root->right);
 	}
