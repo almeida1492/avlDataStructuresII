@@ -18,7 +18,7 @@ int avl_height(AVL_TREE *tree, AVL_NODE *root){
 		}
 	}
 	else{
-		return -1;
+		return 0;
 	}
 }
 
@@ -51,6 +51,7 @@ void iterative_insertion(AVL_TREE *tree, int *data){
 				receiver = (AVL_NODE*) malloc(sizeof(AVL_NODE));
 				receiver->dataPtr = data;
 				pointer->left = receiver;
+				break;
 			}
 		}
 		else if(tree->compare(data, pointer->dataPtr) > 0){
@@ -61,8 +62,20 @@ void iterative_insertion(AVL_TREE *tree, int *data){
 				receiver = (AVL_NODE*) malloc(sizeof(AVL_NODE));
 				receiver->dataPtr = data;
 				pointer->right = receiver;
+				break;
 			}
 		}
+	}
+}
+
+void print(AVL_NODE *root){
+
+	if(root->right){
+		print(root->right);
+	}
+	printf("(%i) %i %i\n", root->level, *(int*)root->dataPtr, root->bal);
+	if(root->left){
+		print(root->left);
 	}
 }
 
@@ -85,17 +98,17 @@ int main(){
 	data = (int*) malloc(sizeof(int));
 	printf("Input data: ");
 	scanf("%i", data);
+	printf("\n");
 
 	iterative_insertion(tree, data);
-
-
-
+	
+	print(tree->root);
 	return 0;
 }
 
 
 
-
+// {70, 60, 80, 50, 75, 65, 45}
 
 
 
