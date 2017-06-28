@@ -39,13 +39,16 @@ int compareInt (void* num1, void* num2){
 
 void iterative_insertion(AVL_TREE *tree, int *data){
 	AVL_NODE *pointer, *receiver;
+	int bound;
+
+	bound = avl_height(tree, tree->root);
 
 	pointer = tree->root;
-	for (int i = 0; i < avl_height(tree, tree->root); ++i){
+	for (int i = 0; i < bound; i++){
 		
 		if(tree->compare(data, pointer->dataPtr) < 0){
-			if(pointer->left){
-				pointer = tree->root->left;	
+			if(pointer->left != NULL){
+				pointer = pointer->left;	
 			}
 			else{
 				receiver = (AVL_NODE*) malloc(sizeof(AVL_NODE));
@@ -56,7 +59,7 @@ void iterative_insertion(AVL_TREE *tree, int *data){
 		}
 		else if(tree->compare(data, pointer->dataPtr) > 0){
 			if(pointer->right){
-				pointer = tree->root->right;	
+				pointer = pointer->right;	
 			}
 			else{
 				receiver = (AVL_NODE*) malloc(sizeof(AVL_NODE));
@@ -101,6 +104,7 @@ int main(){
 	printf("\n");
 
 	iterative_insertion(tree, data);
+	level_update(tree->root, 0);
 	
 	print(tree->root);
 	return 0;
